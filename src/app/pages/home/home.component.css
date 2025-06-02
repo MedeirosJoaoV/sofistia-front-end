@@ -1,0 +1,64 @@
+/* .container {
+  min-height: 100vh;
+  min-width: 100vw;
+  background: #1a202c;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  font-size: 6rem;
+  margin-bottom: 1rem;
+}
+
+.titulo {
+  font-size: 3rem;
+  color: #fbbf24;
+  margin-bottom: 1rem;
+}
+
+.subtitulo {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.mesa-container {
+  margin-bottom: 1.5rem;
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  select {
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    background-color: #fbbf24;
+    color: white;
+    border: none;
+    outline: none;
+  }
+
+  .erro {
+    color: #f87171;
+    margin-top: 0.5rem;
+  }
+}
+
+button {
+  background-color: #fbbf24;
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #d97706;
+  transform: scale(1.05);
+} */

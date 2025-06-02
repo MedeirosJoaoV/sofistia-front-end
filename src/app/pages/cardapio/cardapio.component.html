@@ -1,0 +1,75 @@
+<div class="min-h-screen bg-gray-900 pb-20">
+  <nav class="bg-gray-800 p-4 shadow-lg">
+    <div class="container mx-auto flex items-center">
+      <div class="flex-1 flex space-x-2">
+        <button (click)="setCategoria('pratos')" [class.bg-amber-600]="categoriaAtiva === 'pratos'"
+          [class.text-white]="categoriaAtiva === 'pratos'" class="px-4 py-2 rounded-full bg-gray-700 text-gray-300">
+          Pratos
+        </button>
+        <button (click)="setCategoria('sobremesas')" [class.bg-amber-600]="categoriaAtiva === 'sobremesas'"
+          [class.text-white]="categoriaAtiva === 'sobremesas'" class="px-4 py-2 rounded-full bg-gray-700 text-gray-300">
+          Sobremesas
+        </button>
+        <button (click)="setCategoria('bebidas')" [class.bg-amber-600]="categoriaAtiva === 'bebidas'"
+          [class.text-white]="categoriaAtiva === 'bebidas'" class="px-4 py-2 rounded-full bg-gray-700 text-gray-300">
+          Bebidas
+        </button>
+      </div>
+      <div>
+        <h1 class="text-3xl font-bold text-amber-500 flex items-center gap-2">
+          <span class="text-white">🛒</span>
+        </h1>
+      </div>
+    </div>
+
+  </nav>
+
+  <div *ngIf="mesa" class="w-full flex justify-center">
+    <div
+      class="flex items-center gap-2 bg-gray-800 text-white px-4 py-1 rounded-b-lg shadow mb-4 text-base font-medium">
+      <span class="text-amber-400 text-xl">🪑</span>
+      Mesa selecionada:
+      <span class="font-bold text-amber-400">{{ mesa }}</span>
+    </div>
+  </div>
+
+  <div class="text-center py-6 bg-gray-900">
+    <h1 class="text-4xl font-bold text-amber-500 mb-2">Sofistia</h1>
+    <p class="text-white text-xl">Gastronomia Tecnologia</p>
+  </div>
+
+  <div class="container mx-auto p-6">
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+      <div *ngFor="let produto of produtos" class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+        <div class="h-48 overflow-hidden">
+          <img [src]="produto.image" [alt]="produto.nome"
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+        </div>
+        <div class="p-4">
+          <h2 class="text-xl font-semibold text-white">{{ produto.nome }}</h2>
+          <p class="text-amber-400 text-lg my-2">R$ {{ produto.valor }}</p>
+
+          <div class="flex items-center justify-between">
+            <button (click)="adicionarAoCarrinho(produto)"
+              class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded transition">
+              Adicionar
+            </button>
+            <span *ngIf="quantidades[produto.id]" class="ml-2 text-white font-bold bg-amber-600 rounded-full px-3 py-1">
+              {{ quantidades[produto.id] }}
+            </span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <button (click)="irPara('/garcom')"
+    class="fixed bottom-6 right-6 bg-amber-600 hover:bg-amber-700 text-white px-4 py-3 rounded-full shadow-xl flex items-center">
+    <span class="mr-2">👨‍🍳</span>
+    Chamar Garçom
+  </button>
+</div>

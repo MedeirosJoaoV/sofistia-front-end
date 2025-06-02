@@ -1,0 +1,45 @@
+<div class="min-h-screen bg-gray-900 flex items-center justify-center">
+  <div class="text-center">
+    <div class="mb-8">
+      <span class="text-8xl">🍽️</span>
+    </div>
+
+    <h1 class="text-5xl font-bold text-amber-500 mb-4">Sofistia</h1>
+
+    <p class="text-2xl text-white mb-8">Bem-vindo ao restaurante mais sofisticado da cidade</p>
+
+    <div class="mb-4">
+      <label class="block text-white text-lg mb-2" for="mesa">Selecione sua mesa:</label>
+      <select
+        id="mesa"
+        [(ngModel)]="mesaSelecionada"
+        class="px-4 py-2 rounded text-lg text-center w-40 outline-none border border-gray-400 focus:border-amber-600 bg-amber-600 text-white font-semibold"
+      >
+        <option value="" disabled>Selecione...</option>
+        <option *ngFor="let mesa of mesasDisponiveis" [value]="mesa.numero">
+          Mesa {{ mesa.numero }}
+        </option>
+      </select>
+    </div>
+
+    <div class="mb-4">
+      <label class="block text-white text-lg mb-2" for="responsavel">Responsável:</label>
+      <input
+        id="responsavel"
+        type="text"
+        [(ngModel)]="responsavel"
+        class="px-4 py-2 rounded text-lg w-64 outline-none border border-gray-400 focus:border-amber-600"
+        placeholder="Informe o nome do responsável"
+      />
+    </div>
+
+    <div *ngIf="erro" class="text-red-400 mt-2 text-sm mb-4">{{ erro }}</div>
+
+    <button
+      (click)="salvarMesa()"
+      class="bg-amber-600 hover:bg-amber-700 text-white px-12 py-4 rounded-lg text-xl transition transform hover:scale-105"
+    >
+      Ir para Cardapio
+    </button>
+  </div>
+</div>
